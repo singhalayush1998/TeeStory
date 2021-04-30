@@ -1,0 +1,28 @@
+.cartCards{
+    display: flex;
+    border: 1px solid black;
+    width: 100%;
+    background-color: #F5F5F5;
+}
+.cartCardsImg{
+    width: 15%;
+}
+.cartCardsDetails{
+    padding: 0rem 2rem ;
+}
+.quantitybtns{
+    background-color: black;
+    outline: none;
+    border: 0px solid black;
+    border-radius: 5px;
+    padding: 0px 8px;
+    font-size: 20px;
+    color: white;
+}
+.cartCardsRemoveBtn{
+    /* width: 100%; */
+    text-align: right;
+}
+.cartCardsRemoveBtn *{
+    margin-top: 5.5rem;
+}

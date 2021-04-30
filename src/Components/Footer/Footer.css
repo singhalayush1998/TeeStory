@@ -1,0 +1,141 @@
+.fullbody{
+    width:100%;
+    height:400px;
+}
+.headings{
+    height:40px;
+    text-align: center;
+    background-color: black;
+    font-size: 20px;
+    color: white;
+    padding-top: 10px;
+}
+.subjects{
+    height: 600px;
+    width: 100%;
+    background-color: rgb(47,47,47);
+  
+}
+.content>div{
+    height: 200px;
+    width: 20%;
+    margin-top: 50px;
+    padding: 6px;
+    display: flex;
+    flex-wrap: wrap;
+   
+   
+}
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 90%;
+    margin: auto;
+}
+.Nhead{
+    height:fit-content;
+    width: 100%;
+    color: white;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    font-size: 18px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-weight: 500;
+
+}
+.lettertext{
+   font-size: 12px;
+   color: white;
+   text-align: left;
+}
+.Ninput{
+    padding: 10px;
+    width: 90%;
+    outline: white;
+    border-radius: 5px;
+    margin: 15px 0px;
+    font-style: italic;
+}
+.Nbutton{
+    padding: 10px;
+    width: 99%;
+    outline:none ;
+    border: rgb(0,200,61) ;
+    height: 70px;
+    font-size: 32px;
+    font-weight: 700;
+    border-radius: 5px;
+    background-color: rgb(0,200,61);
+    cursor: pointer;
+    color: white;
+}
+.colldiv{
+    background-color: rgb(47,47,47) ;
+    color: white;
+    font-weight: 400;
+    width: fit-content;
+    border: 1.5px solid white;
+    border-radius: 5px;
+    padding: 2px;
+    margin-top: 10px;
+    margin-right: 10px;
+
+}
+.colldiv:hover{
+ cursor: pointer;  
+ background-color: white;
+ color: black;
+
+}
+
+.payments>p{
+    color: white;
+    text-align: left;
+    line-height: 25px;
+    margin-top: 2px;
+    font-size: 14px;
+}
+.payments>div{
+    width: 100%;
+    text-align: left;
+}
+.payments>div>img{
+  margin-right: 4px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.question>p{
+color: white;
+text-align: left;
+font-size: 14px;
+line-height: 20px;
+margin-top: -10px;
+}
+.question>h2{
+    color: white;
+    text-align: left;
+    margin-top: 2px;
+ }
+ .question>span{
+     color: white;
+     cursor: pointer;
+     width: 100%;
+     text-align: left;
+     line-height: 30px;
+     font-size: 14px;
+
+ }
+ .question>span:hover{
+    text-decoration: underline;
+}
+.Ffooter{
+    height:30px;
+    text-align: center;
+    background-color: black;
+    font-size: 13px;
+    color: grey;
+    padding-top: 10px;
+    font-style: italic;
+}

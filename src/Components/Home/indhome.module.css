@@ -1,0 +1,54 @@
+.Fullcontents{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5%;
+}
+.imgdiv{
+    width: 40%;
+    padding: 0% 5%;
+}
+.differimgdiv{
+    text-align: left;
+}
+.differimgdiv *{
+    padding: 1rem;
+}
+.contentdiv{
+    margin-top: 50px;
+    width: 40%;
+    text-align: left;
+}
+.sizebtns{
+    background-color: white;
+    padding: 1% 2%;
+    margin: .3rem;
+    border: 1px solid #E5E5E5;
+}
+.quantitybtns{
+    background-color: black;
+    outline: none;
+    border: 0px solid black;
+    border-radius: 5px;
+    padding: 0px 8px;
+    font-size: 20px;
+    color: white;
+}
+.price{
+    margin: 5% 0px;
+    font-size: x-large;
+    font-weight: bold;
+    color:#00C83D;
+}
+.cartbtn{
+    width: 50%;
+    background-color: #00C83D;
+    border: none;
+    color: #fff;
+    font-size: large;
+    border-radius: 0.5rem;
+    padding: .6rem;
+}
+button:hover{
+    cursor: pointer;
+}
