@@ -12,14 +12,18 @@ export const CartContextProvider=({children})=>{
         setCart([...cart.filter(item=>item.name !== payload.name||item.size !==payload.size),payload])
         saveData("cart",[...cart.filter(item=>item.name !== payload.name || item.size !==payload.size),payload])
     }
+    const handleQuantityChange=(payload,quantity)=>{
+        setCart([...cart.map(item=>item.name === payload.name?{...item,qty:quantity}:item)])
+        saveData("cart",[...cart.map(item=>item.name === payload.name?{...item,qty:quantity}:item)])
+    }
     const handleDelete=(name)=>{
         setCart([...cart.filter(item=>item.name!==name)])
         saveData("cart",[...cart.filter(item=>item.name !== name)])
     }
     const values = {
         cart,
-        setCart,
         handleAdd,
+        handleQuantityChange,
         handleDelete
     }
 

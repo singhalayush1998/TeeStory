@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 import { productDetails } from '../../ReduxFiles/action'
+import { CartContext } from '../ContextCart/CartContext'
 import indhome from './indhome.module.css'
 
 
@@ -15,17 +16,31 @@ function HomeInditems() {
     const individual_data=data?.homepage.products.filter(item=>item.name === name.name)[0]
     const [image,setImg] = useState(individual_data?.img)
     const [quantity,setQuantity] = useState(1)
+    const {handleAdd} = useContext(CartContext)
     const [size,setSize] = useState("")
     const handleSize=(e)=>{
         setSize(e.target.textContent)
         e.target.style.border="1px solid black"
+    }
+    const addItemToCart=()=>{
+        if(size === ""){
+            alert("Please select a style")
+        }else{
+            const payload = {
+                ...individual_data,
+                size:size,
+                qty:quantity
+            }
+            
+            handleAdd(payload)
+        }
     }
 
     console.log(individual_data)
     const dispatch = useDispatch()
     useEffect(()=>{
         dispatch(productDetails())
-    },[])
+    },[dispatch])
     return (
         <div>
             <div className={indhome.Fullcontents}>
@@ -57,7 +72,7 @@ function HomeInditems() {
                         <button className={indhome.quantitybtns} onClick={()=>setQuantity(prev=>prev+1)}>+</button>
                     </div>
                     <div className={indhome.price}>{individual_data?.price}</div>
-                    <div><button className={indhome.cartbtn}>Add to cart</button></div>
+                    <div><button onClick={addItemToCart} className={indhome.cartbtn}>Add to cart</button></div>
                 </div>
             </div>
             <div style={{textAlign:"left",margin:"1rem 0rem 10rem 2rem"}}>

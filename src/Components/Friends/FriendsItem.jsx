@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 import { productDetails } from '../../ReduxFiles/action'
+import { CartContext } from '../ContextCart/CartContext'
 import friendsItem from './friendsItem.module.css'
 
 
@@ -12,6 +13,7 @@ const des =["Description","Quality","Deliver & Return"]
 function FriendItems() {
     const data = useSelector(state=>state.data.details)
     const name = useParams()
+    const {handleAdd} = useContext(CartContext)
     const individual_data=data?.friends.filter(item=>item.name === name.name)[0]
     const [image,setImg] = useState(individual_data?.img)
     const [quantity,setQuantity] = useState(1)
@@ -19,6 +21,19 @@ function FriendItems() {
     const handleSize=(e)=>{
         setSize(e.target.textContent)
         e.target.style.border="1px solid black"
+    }
+    const addItemToCart=()=>{
+        if(size === ""){
+            alert("Please select a style")
+        }else{
+            const payload = {
+                ...individual_data,
+                size:size,
+                qty:quantity
+            }
+            
+            handleAdd(payload)
+        }
     }
 
     console.log(individual_data)
@@ -57,7 +72,7 @@ function FriendItems() {
                         <button className={friendsItem.quantitybtns} onClick={()=>setQuantity(prev=>prev+1)}>+</button>
                     </div>
                     <div className={friendsItem.price}>{individual_data?.price}</div>
-                    <div><button className={friendsItem.cartbtn}>Add to cart</button></div>
+                    <div><button onClick={addItemToCart} className={friendsItem.cartbtn}>Add to cart</button></div>
                 </div>
             </div>
             <div style={{textAlign:"left",margin:"1rem 0rem 10rem 2rem"}}>

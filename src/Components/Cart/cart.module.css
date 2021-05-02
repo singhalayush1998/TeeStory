@@ -1,13 +1,51 @@
+.CartDiv{
+   text-align:left;
+   display:flex;
+   gap: 5%;
+}
+.CartDivitem{
+    width:60%;
+    height: fit-content;
+}
+.CartDivSummery{
+    width:30%;
+    text-align:center;
+    background:#F5F5F5;
+    height:350px;
+    margin-top:3rem;
+    border: 1px solid black;
+}
+@media (max-width:750px){
+    .CartDiv{
+        flex-direction: column;
+     }
+     
+    .CartDivitem{
+        width:100%;
+        margin: auto;
+        /* height: 200px; */
+    }
+    .CartDivSummery{
+        width:90%;
+        margin: auto;
+    }
+    .cartCardsImg *{
+        width: 130%;
+    }
+} 
+
 .cartCards{
     display: flex;
     border: 1px solid black;
-    width: 100%;
+    margin: 1rem;
     background-color: #F5F5F5;
+    justify-content: space-between;
 }
 .cartCardsImg{
-    width: 15%;
+    width: 20%;
 }
 .cartCardsDetails{
+    width: 50%;
     padding: 0rem 2rem ;
 }
 .quantitybtns{
@@ -20,9 +58,24 @@
     color: white;
 }
 .cartCardsRemoveBtn{
-    /* width: 100%; */
-    text-align: right;
+    justify-self: flex-end;
 }
 .cartCardsRemoveBtn *{
-    margin-top: 5.5rem;
+    border: none;
+    outline: none;
+    background: transparent;
+    margin-right: .5rem;
+    margin-top: .5rem;
+}
+.cartPlaceOrderbtn{
+    width: 80%;
+    background-color: #00C83D;
+    border: none;
+    color: #fff;
+    font-size: large;
+    border-radius: 0.5rem;
+    padding: .6rem;
+}
+button:hover{
+    cursor: pointer;
 }

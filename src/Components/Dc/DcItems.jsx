@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 import { productDetails } from '../../ReduxFiles/action'
+import { CartContext } from '../ContextCart/CartContext'
 import dciten from './dcItem.module.css'
 
 
@@ -13,6 +14,7 @@ function DcInditems() {
     const data = useSelector(state=>state.data.details)
     const name = useParams()
     const individual_data=data?.dc.filter(item=>item.name === name.name)[0]
+    const {handleAdd} = useContext(CartContext)
     const [image,setImg] = useState(individual_data?.img)
     const [quantity,setQuantity] = useState(1)
     const [size,setSize] = useState("")
@@ -20,6 +22,19 @@ function DcInditems() {
         setSize(e.target.textContent)
         e.target.style.border="1px solid black"
     }
+    const addItemToCart=()=>{
+            if(size === ""){
+                alert("Please select a style")
+            }else{
+                const payload = {
+                    ...individual_data,
+                    size:size,
+                    qty:quantity
+                }
+                
+                handleAdd(payload)
+            }
+        }
 
     console.log(individual_data)
     const dispatch = useDispatch()
@@ -57,7 +72,7 @@ function DcInditems() {
                         <button className={dciten.quantitybtns} onClick={()=>setQuantity(prev=>prev+1)}>+</button>
                     </div>
                     <div className={dciten.price}>{individual_data?.price}</div>
-                    <div><button className={dciten.cartbtn}>Add to cart</button></div>
+                    <div><button onClick={addItemToCart}  className={dciten.cartbtn}>Add to cart</button></div>
                 </div>
             </div>
             <div style={{textAlign:"left",margin:"1rem 0rem 10rem 2rem"}}>
